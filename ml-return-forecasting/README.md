@@ -2,9 +2,7 @@
 
 A cross-sectional equity ranking pipeline: Logistic Regression, XGBoost, and LightGBM trained on technical/momentum/volatility features, validated with strict walk-forward methodology, evaluated with Information Coefficient, and backtested against buy-and-hold and momentum benchmarks — with SHAP explainability and regime-conditioned robustness checks.
 
-## The actual claim this project makes
 
-Not "I predicted the stock market." The honest, defensible claim is: **I built a research pipeline rigorous enough to detect a genuine predictive signal if one exists, with every step of validation done correctly** — and correctly means reporting a weak-or-absent signal honestly when that's what the evidence shows, which is the most statistically likely outcome for public technical features on public tickers. The two things almost every amateur quant portfolio project gets wrong — leaking future information into training, and reporting backtest performance without a null/benchmark comparison — are treated here as first-class, explicitly tested properties, not afterthoughts.
 
 ## Pipeline
 
