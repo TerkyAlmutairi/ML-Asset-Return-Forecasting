@@ -63,12 +63,7 @@ streamlit run app.py
 - **CI (`tests/`, 13 tests)**: pure logic — feature computation, fold generation, backtest math, IC computation — tested with synthetic data. No network, no model training, runs in seconds.
 - **Local (`python src/pipeline.py`)**: the real, network-dependent full run — live price data via yfinance, real model training across dozens of walk-forward folds, real SHAP analysis. Not run in CI because it needs live market data and takes minutes, not seconds.
 
-## What I'd say honestly in an interview
 
-- **The most likely, and most honest, finding is a weak-to-absent signal.** Public technical/momentum/volatility features on liquid large-cap names are heavily arbitraged; if this pipeline finds strong out-of-sample IC on such a small universe, that result deserves *more* skepticism, not less — it's more likely multiple-testing luck than a real edge, and the honest move is to say so rather than present it as a discovered strategy.
-- **XGBoost/LightGBM predict return magnitude but are used only as a ranking score**, not taken at face value as a literal return forecast — gradient boosting on noisy return data is far more trustworthy at "is A likely to outperform B" than at a precise point estimate.
-- **A ~15-name universe is small for a "decile" split** — the long/short backtest effectively trades the top/bottom ~3 names, not a true decile. This is flagged deliberately rather than hidden; a production version would need a much larger universe (100+ names) for the decile framing to be statistically meaningful.
-- **This isn't survivorship-bias-free** — the ticker universe is today's well-known large caps, not a point-in-time historical universe, so there's an implicit "stocks that turned out to matter" bias worth naming.
 
 ## Stack
 
